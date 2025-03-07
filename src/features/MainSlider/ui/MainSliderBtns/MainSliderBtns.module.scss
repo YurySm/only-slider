@@ -8,12 +8,16 @@
     margin-top: unset !important;
     width: 50px !important;
     height: 50px !important;
-    background: none;
+    background-color: transparent;
     border-radius: 50%;
     border: 1px solid rgba(66, 86, 122, 0.5);
     position: static !important;
+    transition: background-color .3s ease-in-out;
     &:before,
     &:after {
         display: none;
+    }
+    &:hover {
+        background-color: #fff;
     }
 }

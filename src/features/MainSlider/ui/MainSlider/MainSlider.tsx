@@ -14,6 +14,7 @@ import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/effect-fade';
+import CircularPagination from 'features/MainSlider/ui/CircularPagination/CircularPagination';
 
 interface MainSliderProps {
     className?: string;
@@ -23,6 +24,7 @@ export const MainSlider = ({ className }: MainSliderProps) => {
     const [activeTab, setActiveTab] = useState<number>(0)
 
     const swiperRef = useRef<SwiperCore | null>(null);
+    const paginationRef = useRef<HTMLDivElement>(null);
 
     return (
         <div className={ clsx(cls.mainSlider, className) }>
@@ -35,6 +37,13 @@ export const MainSlider = ({ className }: MainSliderProps) => {
                 allItems={ fakeData.length }/>
 
             <MainSliderBtns/>
+
+            <CircularPagination
+                swiperRef={ swiperRef }
+                paginationRef={ paginationRef }
+                activeTab={ activeTab }
+                slides={ fakeData }
+            />
 
             <div>
                 <Swiper

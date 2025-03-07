@@ -1,0 +1,32 @@
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 530px;
+    height: 530px;
+    border-radius: 50%;
+    border: 1px solid var(--color-gray-opacity);
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    z-index: 100;
+}
+
+.paginationBtn {
+    position: absolute;
+    //top: 50%;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #fff;
+}
