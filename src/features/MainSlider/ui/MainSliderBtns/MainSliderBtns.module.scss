@@ -1,0 +1,19 @@
+.mainSliderBtns {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.swiperBtn {
+    margin-top: unset !important;
+    width: 50px !important;
+    height: 50px !important;
+    background: none;
+    border-radius: 50%;
+    border: 1px solid rgba(66, 86, 122, 0.5);
+    position: static !important;
+    &:before,
+    &:after {
+        display: none;
+    }
+}
