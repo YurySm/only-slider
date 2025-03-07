@@ -104,11 +104,6 @@ export default [
             '@typescript-eslint/no-unused-vars': 'warn',
             'react-hooks/rules-of-hooks': 'error',
             'react-hooks/exhaustive-deps': 'warn',
-        },
-    },
-    {
-        files: ['**/src/**/*.{spec,test,story}.{ts,tsx}'],
-        rules: {
             'i18next/no-literal-string': 0,
         },
     },

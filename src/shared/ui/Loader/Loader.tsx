@@ -1,11 +1,11 @@
-import './Loader.scss';
+import './Loader.module.scss';
 import clsx from 'clsx';
 
-interface PageLoaderProps {
+interface LoaderProps {
     className?: string;
 }
 
-export const Loader = ({ className }: PageLoaderProps) => (
+export const Loader = ({ className }: LoaderProps) => (
     <div className={ clsx('lds-roller', className) }>
         <div />
         <div />

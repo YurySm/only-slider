@@ -1,0 +1,19 @@
+.h1 {
+    position: relative;
+    padding-left: 80px;
+    color: var(--color-black-blue);
+    font-family: var(--font-famaly-main), serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 120%;
+    &:before {
+        content: '';
+        display: block;
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to bottom, var(--primary-blue), var(--primary-red));
+    }
+}
