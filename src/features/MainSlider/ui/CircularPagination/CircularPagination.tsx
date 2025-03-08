@@ -5,7 +5,6 @@ import { Swiper as SwiperCore } from 'swiper';
 import cls from './CircularPagination.module.scss'
 import clsx from 'clsx';
 
-
 interface CircularPaginationProps {
     swiperRef: RefObject<SwiperCore | null>
     paginationRef: RefObject<HTMLDivElement | null>
@@ -19,13 +18,22 @@ const CircularPagination = ({ swiperRef, paginationRef, activeTab, slides }: Cir
         if (!buttons) return
 
         const angleIncrement = (2 * Math.PI) / slides.length;
-        const offsetAngle = -index * angleIncrement; // Смещение для активной кнопки вверху
+        const offsetAngle = -index * angleIncrement;
 
         gsap.to(buttons, {
-            rotation: (i) => (i * angleIncrement + offsetAngle + 0.6) * (180 / Math.PI), // Угол в градусах
+            rotation: (i) => (i * angleIncrement + offsetAngle + 0.6) * (180 / Math.PI),
             duration: 0.6,
             ease: 'power2.out',
-            transformOrigin: 'center 265px', //
+            transformOrigin: 'center 295px', //
+        });
+
+        Array.from(buttons).forEach((button, i) => {
+            const buttonAngle = (i * angleIncrement + offsetAngle + 0.6) * (180 / Math.PI);
+            gsap.to(button.querySelector('span'), { // Вращаем внутренний элемент (цифру)
+                rotation: -buttonAngle, // Компенсация вращения по окружности
+                duration: 0.6,
+                ease: 'power2.out',
+            });
         });
     };
 
@@ -43,13 +51,22 @@ const CircularPagination = ({ swiperRef, paginationRef, activeTab, slides }: Cir
             ref={ paginationRef }
             className={ cls.wrapper }
         >
-            {slides.map((_, index) => (
+            {slides.map((slide, index) => (
                 <button
                     key={ index }
                     onClick={ () => swiperRef.current?.slideTo(index) }
                     className={ clsx(cls.paginationBtn, { [cls.active]: index === activeTab }) }
+                    // style={{ transform: `translate(-50%, -50%) rotate(${(360 / slides.length) * index}deg)` }}
                 >
-                    {index + 1}
+                    <span
+                        // style={{ display: 'block', transform: `translate(-50%, -50%) rotate(${-(360 / slides.length) * index }deg)` }}
+                        className={ cls.count }
+                    >
+                        <span className={ cls.countWrapp }>{index + 1}</span>
+                        <span className={ cls.title }>
+                            {slide.title}
+                        </span>
+                    </span>
                 </button>
             ))}
         </div>

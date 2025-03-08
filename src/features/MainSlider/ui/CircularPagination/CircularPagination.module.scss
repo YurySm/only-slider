@@ -16,17 +16,86 @@
 
 .paginationBtn {
     position: absolute;
-    //top: 50%;
-    top: 0;
-    left: 50%;
-    width: 10px;
-    height: 10px;
+    top: -28px;
+    left: calc(50% - 28px);
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
+    //border: 1px solid var(--color-gray);
     border: none;
     background-color: transparent;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //border: 3px solid var(--color-black-blue);
+    &:hover {
+        .count {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 1px solid var(--color-gray);
+            background-color: var(--bg-body);
+            & > .countWrapp {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.count {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    border: 3px solid var(--color-gray);
+    background-color: transparent;
+    transition-duration: 0.4s;
+    transition-property: width, height, border, opacity;
+    & > .countWrapp {
+        opacity: 0;
+    }
 }
 
 .active {
-    background-color: #fff;
+    .count {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: 1px solid var(--color-gray);
+        background-color: var(--bg-body);
+        & > .countWrapp {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+    }
+    .title{
+        opacity: 1;
+        visibility: visible;
+        font-size: var(--font-size-m);
+        font-weight: 700;
+        line-height: var(--font-line-m);
+        color: var(--color-black-blue);
+    }
 }
+
+.title{
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0.4s;
+    transition-delay: 0.4s;
+    transition-property: opacity;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: calc(50% + 40px);
+    transform: translate(0, -50%);
+    font-family: var(--font-famaly-main), sans-serif;
+}
+
