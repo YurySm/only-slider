@@ -22,16 +22,16 @@ const CircularPagination = ({ swiperRef, paginationRef, activeTab, slides }: Cir
 
         gsap.to(buttons, {
             rotation: (i) => (i * angleIncrement + offsetAngle + 0.6) * (180 / Math.PI),
-            duration: 0.6,
+            duration: 1,
             ease: 'power2.out',
-            transformOrigin: 'center 295px', //
+            transformOrigin: 'center 292px', //
         });
 
         Array.from(buttons).forEach((button, i) => {
             const buttonAngle = (i * angleIncrement + offsetAngle + 0.6) * (180 / Math.PI);
             gsap.to(button.querySelector('span'), { // Вращаем внутренний элемент (цифру)
                 rotation: -buttonAngle, // Компенсация вращения по окружности
-                duration: 0.6,
+                duration: 1,
                 ease: 'power2.out',
             });
         });

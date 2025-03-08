@@ -3,8 +3,8 @@ import { fakeData } from 'shared/lib/fakeData';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, EffectFade, Navigation, Pagination, Virtual } from 'swiper/modules';
 import { EventSliderItem } from 'entities/EventSliderItem';
-import { BigYears } from 'entities/BigYears';
-import { useRef, useState } from 'react';
+import { BigYears } from 'features/MainSlider/ui/BigYears';
+import { useCallback, useRef, useState } from 'react';
 import { Swiper as SwiperCore } from 'swiper';
 import { Counters } from '../Countes/Counters';
 import { MainSliderBtns } from '../MainSliderBtns/MainSliderBtns';
@@ -14,100 +14,51 @@ import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/effect-fade';
-import CircularPagination from 'features/MainSlider/ui/CircularPagination/CircularPagination';
+import CircularPagination from '../CircularPagination/CircularPagination';
+import { useResize } from 'shared/lib/hooks/useResize';
+import { MobPagination } from 'features/MainSlider/ui/MobPagination/MobPagination';
+import { MobileSlider } from '../MobileSlider/MobileSlider';
+import { DesktopSlider } from '../DesktopSlider/DesktopSlider';
+
 
 interface MainSliderProps {
     className?: string;
 }
 
 export const MainSlider = ({ className }: MainSliderProps) => {
+    const { isScreenMd } = useResize()
     const [activeTab, setActiveTab] = useState<number>(0)
+
+    const handelSetActiveTab = useCallback((tab: number) => {
+        setActiveTab(tab)
+    }, [setActiveTab])
 
     const swiperRef = useRef<SwiperCore | null>(null);
     const paginationRef = useRef<HTMLDivElement>(null);
 
+    if (isScreenMd) {
+        return (
+            <div className={ clsx(cls.mainSlider, className) }>
+                <MobileSlider
+                    swiperRef={ swiperRef }
+                    paginationRef={ paginationRef }
+                    activeTab={ activeTab }
+                    slides={ fakeData }
+                    handelSetActiveTab={ handelSetActiveTab }
+                />
+            </div>
+        )
+    }
+
     return (
         <div className={ clsx(cls.mainSlider, className) }>
-            <BigYears
-                activeTab={ activeTab }
-            />
-
-            <Counters
-                activeTab={ activeTab }
-                allItems={ fakeData.length }/>
-
-            <MainSliderBtns/>
-
-            <CircularPagination
+            <DesktopSlider
                 swiperRef={ swiperRef }
                 paginationRef={ paginationRef }
                 activeTab={ activeTab }
                 slides={ fakeData }
+                handelSetActiveTab={ handelSetActiveTab }
             />
-
-            <div>
-                <Swiper
-                    style={{ marginTop: 50 }}
-                    modules={ [Navigation, Pagination, A11y, EffectFade] }
-                    effect={ 'fade' }
-                    fadeEffect={{
-                        crossFade: true,
-                    }}
-                    spaceBetween={ 50 }
-                    slidesPerView={ 1 }
-                    navigation={{
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    }}
-                    swipeHandler={ null }
-                    pagination={{
-                        clickable: true,
-                        el: '.swiper-pagination',
-                    }}
-                    onSwiper={ (swiper) => {
-                        swiperRef.current = swiper;
-                        console.log(swiper)
-                    } }
-                    onSlideChange={ () => {
-                        console.log(swiperRef?.current?.activeIndex)
-                        setActiveTab(swiperRef?.current?.activeIndex || 0)
-                    } }
-                    allowTouchMove={ false }
-                >
-                    {
-                        fakeData.map((el, index) => (
-                            <SwiperSlide
-                                key={ `${el.title}-${index}` }>
-                                <Swiper
-                                    modules={ [Virtual] }
-                                    spaceBetween={ 50 }
-                                    slidesPerView={ 3.3 }
-                                    virtual
-                                    navigation={{
-                                        nextEl: `.swiper-inner-button-next-${index}`,
-                                        prevEl: null,
-                                    }}
-                                >
-                                    {
-                                        el.items.map(({ year, text }, index) => (
-                                            <SwiperSlide
-                                                virtualIndex={ index }
-                                                key={ `${year}-${index}` }
-                                                style={{ border: '1px solid black' }}
-                                            >
-                                                <EventSliderItem
-                                                    year={ year }
-                                                    text={ text }
-                                                />
-                                            </SwiperSlide>
-                                        ))
-                                    }
-                                </Swiper>
-                            </SwiperSlide>
-                        ))
-                    }
-                </Swiper>
-            </div>
         </div>
     );
 };

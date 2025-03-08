@@ -13,11 +13,30 @@
     border: 1px solid rgba(66, 86, 122, 0.5);
     position: static !important;
     transition: background-color .3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:before,
     &:after {
         display: none;
     }
     &:hover {
         background-color: #fff;
+    }
+    & > svg {
+        width: auto !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 520px) {
+    .mainSliderBtns {
+        margin-top: 10px;
+        gap: 10px;
+    }
+    .swiperBtn {
+        width: 25px !important;
+        height: 25px !important;
+        //pointer-events: none;
     }
 }

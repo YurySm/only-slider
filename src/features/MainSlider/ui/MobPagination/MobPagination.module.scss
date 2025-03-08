@@ -1,0 +1,19 @@
+.mobPagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobPaginationBtn {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-black-blue-400);
+}
+
+.mobPaginationBtnActive {
+    background-color: var(--color-black-blue);
+}

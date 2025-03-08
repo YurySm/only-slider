@@ -3,8 +3,10 @@
     --primary-blue: #3877EE;
     --primary-red: #EF5DA8;
     --color-gray:  rgba(66, 86, 122, 1);
-    --color-gray-opacity:  rgba(66, 86, 122, .1);
+    --color-gray-500: rgba(48, 62, 88, 0.5);
+    --color-gray-100:  rgba(66, 86, 122, .1);
     --color-black-blue:  rgb(66, 86, 122);
+    --color-black-blue-400:  rgba(66, 86, 122, 0.4);
     --font-famaly-main: 'PT Sans', sans-serif;
     --font-size-s: 14px;
     --font-line-s: 18px;
@@ -12,4 +14,16 @@
     --font-line-m: 30px;
     --font-size-l: 25px;
     --font-line-l: 30px;
+}
+
+@media (max-width: 520px) {
+    :root {
+        --font-size-s: 14px;
+        --font-line-s: 18px;
+        --font-size-m: 14px;
+        --font-line-m: 22px;
+        --font-size-l: 16px;
+        --font-line-l: 24px;
+    }
+
 }

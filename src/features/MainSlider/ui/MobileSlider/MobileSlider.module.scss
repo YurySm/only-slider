@@ -1,0 +1,37 @@
+@media (max-width: 520px) {
+    .mainSlider {
+        padding: 0;
+    }
+    .mobTitle {
+        margin-top: 10vh;
+        padding-bottom: 20px;
+        font-family: var(--font-famaly-main), sans-serif;
+        font-size: var(--font-size-s);
+        font-weight: 700;
+        line-height: var(--font-line-s);
+        color: var(--color-black-blue);
+        border-bottom: 1px solid var(--color-gray-100);
+    }
+    .countersWrapp {
+        order: 10;
+    }
+    .bigSlider {
+        margin-top: 0;
+        flex: 1;
+    }
+    .innerSlider {
+        margin-top: 20px;
+    }
+    .innerSlide {
+        min-height: 27vh;
+    }
+    .countersWrapp {
+        position: relative;
+    }
+    .mobPagination {
+        position: absolute;
+        top: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

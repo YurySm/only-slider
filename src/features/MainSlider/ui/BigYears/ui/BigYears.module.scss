@@ -1,0 +1,53 @@
+.bigYears {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.year {
+    font-family: var(--font-famaly-main), sans-serif;
+    //font-size: 200px;
+    font-size: clamp(146px, 13.7vw, 200px);
+    font-weight: 700;
+    line-height: 160px;
+    letter-spacing: -1px;
+    z-index: 100;
+}
+
+.dateFrom {
+    color: var(--primary-blue);
+}
+
+.dateTo {
+    color: var(--primary-red);
+}
+
+@media (max-width: 1200px) {
+    .bigYears {
+        gap: 50px;
+    }
+    .year {
+        font-size: clamp(90px, 10vw, 110px);
+        line-height: 72px;
+    }
+}
+
+
+@media (max-width: 520px) {
+    .bigYears {
+        margin-top: 56px;
+        position: static;
+        justify-content: flex-start;
+        gap: 30px;
+        transform: unset;
+    }
+    .year {
+        font-size: clamp(56px, 17vw, 65px);
+        line-height: 72px;
+    }
+}

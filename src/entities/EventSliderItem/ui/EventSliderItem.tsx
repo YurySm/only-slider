@@ -1,5 +1,4 @@
 import cls from './EventSliderItem.module.scss'
-import clsx from 'clsx';
 
 interface EventSliderItemProps {
     className?: string;
@@ -9,7 +8,7 @@ interface EventSliderItemProps {
 
 export const EventSliderItem = ({ className, year, text }: EventSliderItemProps) => {
     return (
-        <div className={ clsx(cls.eventSliderItem, className) }>
+        <div className={ className }>
             <span className={ cls.year }>{year}</span>
             <p className={ cls.text }>{text}</p>
         </div>

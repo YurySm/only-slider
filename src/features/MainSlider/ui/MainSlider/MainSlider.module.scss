@@ -1,3 +1,15 @@
 .mainSlider {
     padding: 0 80px 5vh;
 }
+
+@media (max-width: 1200px) {
+    .mainSlider {
+        padding: 0 50px 2vh;
+    }
+}
+
+@media (max-width: 520px) {
+    .mainSlider {
+        padding: 0;
+    }
+}
