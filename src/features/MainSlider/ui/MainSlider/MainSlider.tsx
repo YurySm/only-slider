@@ -1,25 +1,16 @@
 import clsx from 'clsx';
 import { fakeData } from 'shared/lib/fakeData';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { A11y, EffectFade, Navigation, Pagination, Virtual } from 'swiper/modules';
-import { EventSliderItem } from 'entities/EventSliderItem';
-import { BigYears } from 'features/MainSlider/ui/BigYears';
 import { useCallback, useRef, useState } from 'react';
 import { Swiper as SwiperCore } from 'swiper';
-import { Counters } from '../Countes/Counters';
-import { MainSliderBtns } from '../MainSliderBtns/MainSliderBtns';
+import { useResize } from 'shared/lib/hooks/useResize';
+import { MobileSlider } from '../MobileSlider/MobileSlider';
+import { DesktopSlider } from '../DesktopSlider/DesktopSlider';
 import cls from './MainSlider.module.scss'
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/effect-fade';
-import CircularPagination from '../CircularPagination/CircularPagination';
-import { useResize } from 'shared/lib/hooks/useResize';
-import { MobPagination } from 'features/MainSlider/ui/MobPagination/MobPagination';
-import { MobileSlider } from '../MobileSlider/MobileSlider';
-import { DesktopSlider } from '../DesktopSlider/DesktopSlider';
-
 
 interface MainSliderProps {
     className?: string;

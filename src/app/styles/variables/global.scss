@@ -1,12 +1,12 @@
 :root {
-    --bg-body: rgb(229, 229, 229);
-    --primary-blue: #3877EE;
-    --primary-red: #EF5DA8;
-    --color-gray:  rgba(66, 86, 122, 1);
-    --color-gray-500: rgba(48, 62, 88, 0.5);
-    --color-gray-100:  rgba(66, 86, 122, .1);
-    --color-black-blue:  rgb(66, 86, 122);
-    --color-black-blue-400:  rgba(66, 86, 122, 0.4);
+    --bg-body: rgb(229, 229, 229 / 100%);
+    --primary-blue: #3877ee;
+    --primary-red: #ef5da8;
+    --color-gray: rgb(66 86 122 / 100%);
+    --color-gray-500: rgb(48 62 88 / 50%);
+    --color-gray-100: rgb(66 86 122 / 10%);
+    --color-black-blue: rgb(66 86 122);
+    --color-black-blue-400: rgb(66 86 122 / 40%);
     --font-famaly-main: 'PT Sans', sans-serif;
     --font-size-s: 14px;
     --font-line-s: 18px;
@@ -16,7 +16,7 @@
     --font-line-l: 30px;
 }
 
-@media (max-width: 520px) {
+@media (width <= 520px) {
     :root {
         --font-size-s: 14px;
         --font-line-s: 18px;
@@ -25,5 +25,4 @@
         --font-size-l: 16px;
         --font-line-l: 24px;
     }
-
 }

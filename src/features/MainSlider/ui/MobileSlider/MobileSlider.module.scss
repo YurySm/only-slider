@@ -1,7 +1,8 @@
-@media (max-width: 520px) {
+@media (width <= 520px) {
     .mainSlider {
         padding: 0;
     }
+
     .mobTitle {
         margin-top: 10vh;
         padding-bottom: 20px;
@@ -12,22 +13,25 @@
         color: var(--color-black-blue);
         border-bottom: 1px solid var(--color-gray-100);
     }
+
     .countersWrapp {
         order: 10;
+        position: relative;
     }
+
     .bigSlider {
         margin-top: 0;
         flex: 1;
     }
+
     .innerSlider {
         margin-top: 20px;
     }
+
     .innerSlide {
         min-height: 27vh;
     }
-    .countersWrapp {
-        position: relative;
-    }
+
     .mobPagination {
         position: absolute;
         top: 36px;

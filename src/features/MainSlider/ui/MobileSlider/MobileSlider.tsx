@@ -1,9 +1,8 @@
 import cls from './MobileSlider.module.scss'
-import { BigYears } from 'features/MainSlider/ui/BigYears';
-import CircularPagination from 'features/MainSlider/ui/CircularPagination/CircularPagination';
-import { fakeData, FakeDataItem } from 'shared/lib/fakeData';
-import { Counters } from 'features/MainSlider/ui/Countes/Counters';
-import { MainSliderBtns } from 'features/MainSlider/ui/MainSliderBtns/MainSliderBtns';
+import { BigYears } from '../BigYears/BigYears';
+import { FakeDataItem } from 'shared/lib/fakeData';
+import { Counters } from '../Countes/Counters';
+import { MainSliderBtns } from '../MainSliderBtns/MainSliderBtns';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, EffectFade, Navigation, Pagination, Virtual } from 'swiper/modules';
 import { EventSliderItem } from 'entities/EventSliderItem';
@@ -39,7 +38,7 @@ export const MobileSlider = ( props: MobileSliderProps) => {
                 activeTab={ activeTab }
             />
 
-            <p className={ cls.mobTitle }>{fakeData[activeTab].title}</p>
+            <p className={ cls.mobTitle }>{slides[activeTab].title}</p>
 
             <Swiper
                 className={ cls.bigSlider }
@@ -69,7 +68,7 @@ export const MobileSlider = ( props: MobileSliderProps) => {
                 allowTouchMove={ false }
             >
                 {
-                    fakeData.map((el, index) => (
+                    slides.map((el, index) => (
                         <SwiperSlide
                             key={ `${el.title}-${index}` }>
                             <Swiper
@@ -108,7 +107,7 @@ export const MobileSlider = ( props: MobileSliderProps) => {
                 <div>
                     <Counters
                         activeTab={ activeTab }
-                        allItems={ fakeData.length }/>
+                        allItems={ slides.length }/>
 
                     <MainSliderBtns
                         isMob={ true }
@@ -117,7 +116,7 @@ export const MobileSlider = ( props: MobileSliderProps) => {
                 <MobPagination
                     className={ cls.mobPagination }
                     activeTab={ activeTab }
-                    slides={ fakeData }
+                    slides={ slides }
                     paginationRef={ paginationRef }
                     swiperRef={ swiperRef }
                 />

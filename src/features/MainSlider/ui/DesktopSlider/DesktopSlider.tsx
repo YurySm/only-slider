@@ -1,14 +1,12 @@
 import cls from './DesktopSlider.module.scss'
-import clsx from 'clsx';
-import { BigYears } from 'features/MainSlider/ui/BigYears';
-import CircularPagination from 'features/MainSlider/ui/CircularPagination/CircularPagination';
+import { BigYears } from '../BigYears/BigYears';
+import CircularPagination from '../CircularPagination/CircularPagination';
 import { fakeData, FakeDataItem } from 'shared/lib/fakeData';
-import { Counters } from 'features/MainSlider/ui/Countes/Counters';
-import { MainSliderBtns } from 'features/MainSlider/ui/MainSliderBtns/MainSliderBtns';
+import { Counters } from '../Countes/Counters';
+import { MainSliderBtns } from '../MainSliderBtns/MainSliderBtns';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, EffectFade, Navigation, Pagination, Virtual } from 'swiper/modules';
 import { EventSliderItem } from 'entities/EventSliderItem';
-import { MobPagination } from 'features/MainSlider/ui/MobPagination/MobPagination';
 import { RefObject } from 'react';
 import { Swiper as SwiperCore } from 'swiper';
 import 'swiper/scss';

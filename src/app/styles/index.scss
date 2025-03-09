@@ -1,6 +1,6 @@
 @use 'reset';
 @use 'variables/global';
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap';
 
 #root {
     font-family: var(--font-famaly-main), sans-serif;

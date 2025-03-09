@@ -14,42 +14,6 @@
     z-index: 100;
 }
 
-.paginationBtn {
-    position: absolute;
-    top: -28px;
-    left: calc(50% - 28px);
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    //border: 3px solid var(--color-black-blue);
-    &:hover {
-        .count {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background-color: var(--bg-body);
-            font-family: var(--font-famaly-main), sans-serif;
-            font-size: var(--font-size-m);
-            line-height: var(--font-line-m);
-            border: 1px solid var(--color-gray-500);
-            color: var(--color-gray);
-            & > .countWrapp {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                opacity: 1;
-            }
-        }
-    }
-}
-
 .count {
     width: 0;
     height: 0;
@@ -58,41 +22,13 @@
     background-color: transparent;
     transition-duration: 0.4s;
     transition-property: width, height, border, opacity;
+
     & > .countWrapp {
         opacity: 0;
     }
 }
 
-.active {
-    .count {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        background-color: var(--bg-body);
-        font-family: var(--font-famaly-main), sans-serif;
-        font-size: var(--font-size-m);
-        line-height: var(--font-line-m);
-        border: 1px solid var(--color-gray-500);
-        color: var(--color-gray);
-        & > .countWrapp {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 1;
-        }
-    }
-    .title{
-        opacity: 1;
-        visibility: visible;
-        font-size: var(--font-size-m);
-        font-weight: 700;
-        line-height: var(--font-line-m);
-        color: var(--color-black-blue);
-    }
-}
-
-.title{
+.title {
     opacity: 0;
     visibility: hidden;
     transition-duration: 0.4s;
@@ -106,9 +42,76 @@
     font-family: var(--font-famaly-main), sans-serif;
 }
 
-@media (max-width: 1200px) {
-    .wrapper {
-        transform: translate(-50%, -50%) scale(.7);
+.paginationBtn {
+    position: absolute;
+    top: -28px;
+    left: calc(50% - 28px);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        .count {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: var(--bg-body);
+            font-family: var(--font-famaly-main), sans-serif;
+            font-size: var(--font-size-m);
+            line-height: var(--font-line-m);
+            border: 1px solid var(--color-gray-500);
+            color: var(--color-gray);
+
+            & > .countWrapp {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+    }
+
+    &.active {
+        .count {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: var(--bg-body);
+            font-family: var(--font-famaly-main), sans-serif;
+            font-size: var(--font-size-m);
+            line-height: var(--font-line-m);
+            border: 1px solid var(--color-gray-500);
+            color: var(--color-gray);
+
+            & > .countWrapp {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        .title {
+            opacity: 1;
+            visibility: visible;
+            font-size: var(--font-size-m);
+            font-weight: 700;
+            line-height: var(--font-line-m);
+            color: var(--color-black-blue);
+        }
     }
 }
 
+@media (width <= 1200px) {
+    .wrapper {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+}

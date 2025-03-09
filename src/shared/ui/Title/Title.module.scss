@@ -6,7 +6,8 @@
     font-size: 56px;
     font-weight: 700;
     line-height: 120%;
-    &:before {
+
+    &::before {
         content: '';
         display: block;
         width: 5px;
@@ -14,11 +15,15 @@
         position: absolute;
         top: 0;
         left: 0;
-        background: linear-gradient(to bottom, var(--primary-blue), var(--primary-red));
+        background: linear-gradient(
+            to bottom,
+            var(--primary-blue),
+            var(--primary-red)
+        );
     }
 }
 
-@media (max-width: 1200px) {
+@media (width <= 1200px) {
     .h1 {
         position: relative;
         padding-left: 50px;
@@ -26,13 +31,14 @@
     }
 }
 
-@media (max-width: 520px) {
-    .h1  {
+@media (width <= 520px) {
+    .h1 {
         padding: 0;
         text-wrap: wrap;
         font-size: var(--font-size-m);
         line-height: var(--font-line-m);
-        &:before {
+
+        &::before {
             display: none;
         }
     }

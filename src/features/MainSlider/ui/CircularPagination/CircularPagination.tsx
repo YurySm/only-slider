@@ -24,20 +24,19 @@ const CircularPagination = ({ swiperRef, paginationRef, activeTab, slides }: Cir
             rotation: (i) => (i * angleIncrement + offsetAngle + 0.6) * (180 / Math.PI),
             duration: 1,
             ease: 'power2.out',
-            transformOrigin: 'center 292px', //
+            transformOrigin: 'center 292px',
         });
 
         Array.from(buttons).forEach((button, i) => {
             const buttonAngle = (i * angleIncrement + offsetAngle + 0.6) * (180 / Math.PI);
-            gsap.to(button.querySelector('span'), { // Вращаем внутренний элемент (цифру)
-                rotation: -buttonAngle, // Компенсация вращения по окружности
+            gsap.to(button.querySelector('span'), {
+                rotation: -buttonAngle,
                 duration: 1,
                 ease: 'power2.out',
             });
         });
     };
 
-    // Обработчик изменения слайда
     const handleSlideChange = (activeTab: number) => {
         updatePaginationPosition(activeTab);
     };
@@ -56,10 +55,8 @@ const CircularPagination = ({ swiperRef, paginationRef, activeTab, slides }: Cir
                     key={ index }
                     onClick={ () => swiperRef.current?.slideTo(index) }
                     className={ clsx(cls.paginationBtn, { [cls.active]: index === activeTab }) }
-                    // style={{ transform: `translate(-50%, -50%) rotate(${(360 / slides.length) * index}deg)` }}
                 >
                     <span
-                        // style={{ display: 'block', transform: `translate(-50%, -50%) rotate(${-(360 / slides.length) * index }deg)` }}
                         className={ cls.count }
                     >
                         <span className={ cls.countWrapp }>{index + 1}</span>
