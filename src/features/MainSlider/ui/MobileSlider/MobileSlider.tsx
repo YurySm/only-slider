@@ -14,6 +14,7 @@ import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/effect-fade';
+import clsx from 'clsx';
 
 interface MobileSliderProps {
     swiperRef: RefObject<SwiperCore | null>
@@ -74,7 +75,11 @@ export const MobileSlider = ( props: MobileSliderProps) => {
                             <Swiper
                                 modules={ [Virtual] }
                                 spaceBetween={ 15 }
-                                slidesPerView={ 1.3 }
+                                slidesPerView={ 1.5 }
+                                touchRatio={ 1.5 }
+                                freeMode={ true }
+                                watchSlidesProgress={ true }
+                                edgeSwipeDetection={ true }
                                 virtual
                                 navigation={{
                                     nextEl: `.swiper-inner-button-next-${index}`,
@@ -90,7 +95,7 @@ export const MobileSlider = ( props: MobileSliderProps) => {
                                             style={{ border: '1px solid black' }}
                                         >
                                             <EventSliderItem
-                                                className={ cls.innerSlide }
+                                                className={ clsx(cls.innerSlide) }
                                                 year={ year }
                                                 text={ text }
                                             />
