@@ -1,0 +1,38 @@
+name: CI Pipeline Linting and Building
+run-name: Testing Only Slider 🚀
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 22.x ]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build production project
+        run: npm run build:prod
+        if: always()
+
+      - name: Run linting TypeScript
+        run: npm run lint:ts
+        if: always()
+
+      - name: Run linting CSS
+        run: npm run lint:scss
+        if: always()
