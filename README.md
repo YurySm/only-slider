@@ -6,6 +6,10 @@
 
 Добавлен [Husky](https://typicode.github.io/husky/) для запуска прогона линтеров перед коммитом
 
+Для примера настроен простой CI/CD
+
+Деплой на [Vercel](https://vercel.com/) по [ссылке](https://only-slider.vercel.app/)
+
 ## Скрипты
 ### Запуск приложения с дев сервером
 ```bash
